@@ -1,0 +1,19 @@
+%nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
+  .container
+    %a.navbar-brand{:href => "#"} Green Acts
+    %button.navbar-toggler{"data-toggle" => "collapse", "data-target" => "#navigationMenu"}
+      %span.navbar-toggler-icon
+
+    .collapse.navbar-collapse#navigationMenu
+      %nav.navbar-nav.ml-auto
+        .nav-item
+          %a.nav-link{:href => "#"} Sign Up
+        .nav-item
+          %a.nav-link{:href => "#"} Sign In
+        .nav-item.dropdown
+          %a.nav-link.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"} Username
+          .dropdown-menu
+            %a.dropdown-item{:href => "#"} Profile
+            %a.dropdown-item{:href => "#"} Account Settings
+            .dropdown-divider
+            %a.dropdown-item{:href => "#"} Sign Out
