@@ -1,0 +1,6 @@
+- if flash.any?
+  - flash.each do |type, message|
+    %div{:class => "mt-3 alert #{bootstrap_alert_class_for type}"}
+      = message
+      %button.close{:type => "button", "data-dismiss" => "alert"}
+        %span &times;

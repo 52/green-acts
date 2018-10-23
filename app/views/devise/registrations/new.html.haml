@@ -1,0 +1,35 @@
+- provide :title, "Sign Up"
+.row.justify-content-center
+  .col-sm-6.col-md-4
+
+    %h2 Sign Up
+
+    = form_for(@user, url: signup_path) do |f|
+      .form-group
+        = f.label :name
+        = f.text_field :name, class: "form-control"
+        = render "shared/form_error_message", object: @user, field: :name
+      .form-group
+        = f.label :username
+        = f.text_field :username, class: "form-control"
+        = render "shared/form_error_message", object: @user, field: :username
+      .form-group
+        = f.label :email
+        = f.email_field :email, class: "form-control"
+        = render "shared/form_error_message", object: @user, field: :email
+      .form-group
+        = f.label :password
+        = f.password_field :password, class: "form-control"
+        - if @minimum_password_length
+          %small.form-text.text-muted
+            (#{@minimum_password_length} characters minimum)
+        = render "shared/form_error_message", object: @user, field: :password
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, class: "form-control"
+        = render "shared/form_error_message", object: @user, field: :password_confirmation
+      .form-group
+        = f.submit "Sign Up", class: "btn btn-primary"
+    = render "devise/shared/links"
+
+= render "shared/highlight_error_fields"

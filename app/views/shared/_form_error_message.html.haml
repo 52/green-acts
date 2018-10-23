@@ -1,0 +1,3 @@
+- if object.errors[field].any?
+  .invalid-feedback
+    = "#{field.to_s.humanize} #{object.errors[field][0]}"

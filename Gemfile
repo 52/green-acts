@@ -12,6 +12,7 @@ gem "jbuilder",     "~> 2.5"
 gem "haml",         "~> 5.0"
 gem "bootstrap",    "~> 4.1"
 gem "jquery-rails", "~> 4.3"
+gem "devise",       "~> 4.5"
 
 gem "bootsnap", ">= 1.1.0", require: false
 
@@ -39,6 +40,7 @@ group :test do
   gem "selenium-webdriver"
   gem "chromedriver-helper"
   gem "database_cleaner"
+  gem "shoulda-matchers", "4.0.0.rc1"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
