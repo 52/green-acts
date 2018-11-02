@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     post   "signin",  to: "devise/sessions#create"
     delete "signout", to: "devise/sessions#destroy"
   end
+
+  resources :green_acts
 end

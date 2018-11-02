@@ -7,6 +7,8 @@
     .collapse.navbar-collapse#navigationMenu
       %nav.navbar-nav.ml-auto
         - if user_signed_in?
+          .nav-item
+            = link_to "Share your Green Act", new_green_act_path, class: "nav-link"
           .nav-item.dropdown
             %a.nav-link.dropdown-toggle{:href => "#", "data-toggle" => "dropdown"} Username
             .dropdown-menu

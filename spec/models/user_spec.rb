@@ -15,5 +15,7 @@ RSpec.describe User, type: :model do
 
     it{should allow_value("user_name").for(:username)}
     it{should_not allow_value("user name").for(:username)}
+
+    it{should have_many :green_acts}
   end
 end
