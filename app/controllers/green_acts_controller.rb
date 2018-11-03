@@ -14,6 +14,18 @@ class GreenActsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @green_act.update green_act_params
+      flash[:success] = "Your green act is successfully updated"
+      redirect_to root_url
+    else
+      render :edit
+    end
+  end
+
   private
 
   def green_act_params

@@ -1,7 +1,4 @@
 .row.justify-content-center.mt-3
-  .col-md-12
-    %h2 Latest
-    - @green_acts.each do |act|
-      %h6 #{act.content}
-      %small.text-muted by #{act.user.name}, #{time_ago_in_words act.created_at} ago
+  .col-md-8.justify-content-center
+    = render @green_acts
 
