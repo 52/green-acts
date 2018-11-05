@@ -26,6 +26,15 @@ class GreenActsController < ApplicationController
     end
   end
 
+  def destroy
+    if @green_act.destroy
+      flash[:success] = "Your green act is successfully deleted"
+    else
+      flash[:error] = "There is an error while trying to delete your green act"
+    end
+    redirect_to root_url
+  end
+
   private
 
   def green_act_params

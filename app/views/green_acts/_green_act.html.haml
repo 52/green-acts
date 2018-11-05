@@ -1,7 +1,9 @@
 .card.mt-3
   - if can? :manage, green_act
     .card-header
-      = link_to "Edit", edit_green_act_path(green_act)
+      .btn-group
+        = link_to "Edit", edit_green_act_path(green_act), class: "btn btn-sm btn-secondary"
+        = link_to "Delete", green_act, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-sm btn-danger"
   .card-body
     .card-text #{green_act.content}
     %small.text-muted

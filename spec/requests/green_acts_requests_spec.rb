@@ -5,7 +5,7 @@ require "support/devise"
 RSpec.describe "green acts requests", type: :request do
   let(:user){create :user}
   let(:owner){create :user}
-  let(:green_act){create :green_act, user: owner}
+  let!(:green_act){create :green_act, user: owner}
 
   describe "GET /green_acts/new" do
     context "guest user" do
@@ -115,6 +115,34 @@ RSpec.describe "green acts requests", type: :request do
         expect do
           green_act.reload
         end.to change(green_act, :content).to "I actually did this"
+      end
+    end
+  end
+
+  describe "DELETE /green_acts/:id" do
+    shared_examples "cannot delete" do
+      it "cannot delete the green act from database" do
+        expect do
+          delete "/green_acts/#{green_act.id}"
+        end.not_to change(GreenAct, :count)
+      end
+    end
+
+    context "guest user" do
+      include_examples "cannot delete"
+    end
+
+    context "signed-in user but not owner" do
+      before{sign_in user}
+      include_examples "cannot delete"
+    end
+
+    context "owner" do
+      before{sign_in owner}
+      it "can delete his own green act from database" do
+        expect do
+          delete "/green_acts/#{green_act.id}"
+        end.to change(GreenAct, :count).by(-1)
       end
     end
   end
